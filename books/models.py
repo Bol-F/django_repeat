@@ -34,23 +34,14 @@ class Book(models.Model):
     title = models.CharField(max_length=150)
 
     authors = models.ManyToManyField(
-        Author,
-        related_name="books",
-        db_table="book_authors"
+        Author, related_name="books", db_table="book_authors"
     )
 
     category = models.ForeignKey(
-        Category,
-        on_delete=models.SET_NULL,
-        null=True,
-        blank=True,
-        related_name="books"
+        Category, on_delete=models.SET_NULL, null=True, blank=True, related_name="books"
     )
 
-    price = models.DecimalField(
-        max_digits=10,
-        decimal_places=2
-    )
+    price = models.DecimalField(max_digits=10, decimal_places=2)
 
     description = models.TextField()
 
